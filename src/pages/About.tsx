@@ -1,30 +1,51 @@
-import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
-import { Button } from 'react-bootstrap';
-
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import type { Doctor } from '../types/data';
+import Image from 'react-bootstrap/Image';
 function About() {
-  const [count, setCount] = useState(0);
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get<Doctor[]>('/db/doctors.json');
+        console.log(response);
+
+        if (response.data.length > 0) {
+          setDoctors(response.data);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
-      <h1>About Page</h1>
       <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+        <h1>Equipo Médico</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas velit,
+          cumque placeat non ex voluptatum illo vel natus rerum quam voluptate
+          aliquid exercitationem iusto veniam architecto obcaecati itaque eos
+          eius!
+        </p>
       </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <Button
-          variant='secondary'
-          onClick={() => setCount((count) => count + 1)}
-        >
-          count is {count}
-        </Button>
+      <div>
+        {doctors.map((doctor) => (
+          <div key={doctor.id}>
+            <h2>{doctor.name}</h2>
+            <p>{doctor.specialty}</p>
+            <p>{doctor.description}</p>
+            <p>{doctor.services.join(', ')}</p>
+            <p>{doctor.years}</p>
+            <Image
+              src={`assets/img/doctors/doctor_${doctor.id}.png`}
+              alt={`${doctor.name} - ${doctor.specialty}`}
+            />
+          </div>
+        ))}
       </div>
     </>
   );
