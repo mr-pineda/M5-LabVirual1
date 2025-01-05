@@ -1,27 +1,44 @@
-import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
-import { Button } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import FormAgendar from '../components/Form';
+import type { Doctor } from '../types/data';
 
 function Appointment() {
-  const [count, setCount] = useState(0);
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get<Doctor[]>('/db/doctors.json'); // Ruta del archivo JSON
+        if (response.data.length > 0) {
+          setDoctors(response.data);
+        }
+        setLoading(false);
+      } catch (e) {
+        console.error(e);
+        setError('Error al cargar los datos de los médicos.');
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <p>Cargando datos...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <>
-      <h1>Appointment Page</h1>
-      <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <Button variant='danger' onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
+      <div className="mt-4 container">
+        <h1>Agendar una Cita Médica</h1>
+        {/* Pasamos la lista de doctores al componente FormAgendar */}
+        <FormAgendar doctors={doctors} />
       </div>
     </>
   );
