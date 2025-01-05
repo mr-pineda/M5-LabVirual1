@@ -1,31 +1,62 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
+import { useEffect, useState } from 'react';
+import { Carousel, Container } from 'react-bootstrap';
+import axios from 'axios';
+import { Doctor, Service } from '../types/data';
 
 function Home() {
-  const [count, setCount] = useState(0);
+  const [services, setServices] = useState<Service[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get<Doctor[]>('/db/doctors.json');
+        console.log(response);
+
+        if (response.data.length > 0) {
+          console.log('data len: ', response.data.length);
+          setServices(
+            response.data.map(({ specialty, services }) => {
+              return { global: specialty, services };
+            })
+          );
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
-      <h1>Home Page</h1>
-      <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <Button
-          variant='primary'
-          onClick={() => setCount((count) => count + 1)}
-        >
-          count is {count}
-        </Button>
-      </div>
+      <Container className='d-flex flex-column justify-content-center align-items-center'>
+        <h1>Inicio</h1>
+        <p className='text-center'>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
+          fugit inventore nam quibusdam veniam voluptate ratione asperiores
+          temporibus animi error rem, voluptatibus, soluta facere nisi obcaecati
+          itaque eos. Dolorem, cupiditate!
+        </p>
+      </Container>
+
+      <Container className='d-flex flex-column justify-content-center align-items-center'>
+        <h1 className='my-3'>Nuestros Servicios</h1>
+        <Carousel fade controls={false} interval={1500} variant='dark'>
+          {services.map(({ global, services }, idx) => (
+            <Carousel.Item
+              key={idx}
+              className=' d-flex flex-column justify-content-center align-items-center'
+            >
+              <h2>{global}</h2>
+              {services.map((service, idx) => (
+                <p key={idx}>{service}</p>
+              ))}
+              <br />
+              <br />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </Container>
     </>
   );
 }
