@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header.tsx';
 import { PAGES } from './utils/constants.ts';
 import Footer from './components/Footer.tsx';
+import Contact from './pages/Contact.tsx';
+
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -15,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path={PAGES.HOME} element={<Home />} />
       <Route path={PAGES.ABOUT} element={<About />} />
       <Route path={PAGES.APPOINTMENT} element={<Appointment />} />
+      <Route path={PAGES.CONTACT} element={<Contact />} />
     </Routes>
     <Footer />
   </BrowserRouter>
