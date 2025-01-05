@@ -1,4 +1,5 @@
 import { PAGES } from '../utils/constants';
+// CAMBIO ABSURDO
 
 const Footer = () => {
   return (
