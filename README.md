@@ -82,6 +82,7 @@ Trabajo práctico para desarrollar una página web de hospital que debe contener
 
 5. Optimización del Rendimiento al Omitir Efectos en useEffect (0.5 puntos)
 - [ ] Implementa una optimización en useEffect para evitar que las peticiones se realicen múltiples veces innecesariamente. Asegúrate de que la petición se realice solo cuando el componente se monte o cuando haya un cambio relevante (por ejemplo, al hacer clic en el botón para recargar los datos).
+      
 
 ## Estructura del proyecto
 # Hospital
