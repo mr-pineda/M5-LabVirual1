@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Carousel, Container } from 'react-bootstrap';
 import axios from 'axios';
 import { Doctor, Service } from '../types/data';
-/*import './';*/
 
 function Home() {
   const [services, setServices] = useState<Service[]>([]);
@@ -29,7 +28,7 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <Container className='mt-5 pt-5'>
       <Container className='d-flex flex-column justify-content-center align-items-center'>
         <h1 className='mt-5'>Inicio</h1>
         <p className='text-center'>
@@ -40,15 +39,17 @@ function Home() {
         </p>
       </Container>
 
-      <Container className='d-flex flex-column justify-content-center align-items-center'
-      style={{
-        width: '100%',
-        height: '400px',
-        backgroundImage: 'url("/assets/img/hospital.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}>
+      <Container
+        className='d-flex flex-column justify-content-center align-items-center'
+        style={{
+          width: '100%',
+          height: '400px',
+          backgroundImage: 'url("/assets/img/hospital.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <h1 className='my-3 text-white'>Nuestros Servicios</h1>
         <Carousel fade controls={false} interval={1500} variant='dark'>
           {services.map(({ global, services }, idx) => (
@@ -66,7 +67,7 @@ function Home() {
           ))}
         </Carousel>
       </Container>
-    </>
+    </Container>
   );
 }
 

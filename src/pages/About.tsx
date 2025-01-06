@@ -30,7 +30,7 @@ function About() {
 
   return (
     <>
-      <Container className='mt-4'>
+      <Container className='mt-5 pt-5'>
         <Container className='d-flex flex-column align-items-center'>
           <h1 className='mb-4 text-center'>Equipo Médico</h1>
           <p className='text-center mb-5'>
@@ -68,7 +68,6 @@ function About() {
                       fluid
                       className='mb-3'
                     />
-                    <Button variant='primary'>Ver más</Button>
                   </Card.Body>
                 </Card>
               </Col>

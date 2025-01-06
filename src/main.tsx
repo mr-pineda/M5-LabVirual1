@@ -9,7 +9,6 @@ import { PAGES } from './utils/constants.ts';
 import Footer from './components/Footer.tsx';
 import Contact from './pages/Contact.tsx';
 
-
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <Header />
