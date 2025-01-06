@@ -1,0 +1,10 @@
+.logo-principal {
+    width: 150px;
+    height: auto;
+}
+
+@media (max-width: 769px) {
+    .logo-principal {
+        width: 100px;
+    }
+}
