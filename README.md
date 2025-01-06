@@ -87,7 +87,7 @@ Trabajo práctico para desarrollar una página web de hospital que debe contener
 ## Estructura del proyecto
 # Hospital
 
-  ├── Public
+//  ├── Public
     	├── /assets
           ├── /img
               ├── /Doctors
