@@ -7,3 +7,8 @@ export type Doctor = {
   years: number;
   img?: string;
 };
+
+export type Service = {
+  global: string;
+  services: string[];
+};
