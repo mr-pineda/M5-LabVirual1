@@ -85,6 +85,7 @@ Trabajo práctico para desarrollar una página web de hospital que debe contener
 
 ## Estructura del proyecto
 # Hospital
+
   ├── Public
     	├── /assets
           ├── /img
@@ -126,29 +127,3 @@ Trabajo práctico para desarrollar una página web de hospital que debe contener
   ├──── tsconfig.json
   ├──── tsconfig.node.json
   └──   vite.config.ts
-
-  ├── assets
-	 ├── /img               # Imágenes utilizadas en el proyecto
-├── dist                # Carpetas de bootstrap 
-├──── /css         # archivos css bootstrap 
-	├──── /pages         # css vinculada desde sass
-├──── /js         # archivos js de bootstrap
-├── scss                # SASS estructura de bootstrap
-	├──── /forms         # archivos scss de los formularios de booststrap
-	├──── /helpers      # archivos scss
-├──── /mixins       # Módulos, texto, listas, botones, etc.
-	├──── /pages       # páginas scss de mi proyecto
-	 ├── __contact.scss
-	 ├── __home.scss
-	 ├── __services.scss
-	├──── /tests
-	 ├── /mixins # archivos	    
-	 ├── /sass-true #archivos js
-	 ├── /utilities #Api
-	 ├── jasmine.js
-	├──── /utilities             # archivo api
-	├──── /vendor
-├── contact.html           # Página de contacto
-├── home.html              # Página de inicio
-├── services.html         # Página de nosotros y servicios
-└── README.md        # Ud. se encuentra aquí
