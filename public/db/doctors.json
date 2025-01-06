@@ -10,7 +10,9 @@
       "Cateterismo cardíaco",
       "Consulta especializada"
     ],
-    "years": 15
+    "years": 15,
+    "availableTimes": ["09:00", "10:00", "11:00", "14:00", "15:00"]
+    
   },
   {
     "id": "02",
@@ -22,7 +24,8 @@
       "Control de crecimiento y desarrollo",
       "Atención de urgencias pediátricas"
     ],
-    "years": 10
+    "years": 10,
+    "availableTimes": ["08:30", "09:30", "11:00", "12:30", "16:00"]
   },
   {
     "id": "03",
@@ -34,7 +37,8 @@
       "Resonancia magnética",
       "Consulta especializada"
     ],
-    "years": 12
+    "years": 12,
+    "availableTimes": ["10:00", "11:30", "13:00", "15:00"]
   },
   {
     "id": "04",
@@ -46,7 +50,8 @@
       "Control prenatal",
       "Parto natural y cesárea"
     ],
-    "years": 20
+    "years": 20,
+    "availableTimes": ["08:30", "09:30", "11:00", "12:30", "16:00"]
   },
   {
     "id": "05",
@@ -58,7 +63,8 @@
       "Prótesis de rodilla y hombro",
       "Tratamiento de fracturas"
     ],
-    "years": 18
+    "years": 18,
+    "availableTimes": ["09:00", "10:00", "11:00", "14:00", "15:00"]
   },
   {
     "id": "06",
@@ -70,6 +76,7 @@
       "Láser para miopía, hipermetropía y astigmatismo",
       "Tratamiento de glaucoma"
     ],
-    "years": 14
+    "years": 14,
+    "availableTimes": ["09:00", "10:00", "11:00", "14:00", "15:00"]
   }
 ]

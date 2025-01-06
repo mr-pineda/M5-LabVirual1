@@ -12,9 +12,7 @@ function Appointment() {
     const fetchData = async () => {
       try {
         const response = await axios.get<Doctor[]>('/db/doctors.json'); // Ruta del archivo JSON
-        if (response.data.length > 0) {
-          setDoctors(response.data);
-        }
+        setDoctors(response.data);
         setLoading(false);
       } catch (e) {
         console.error(e);
@@ -34,13 +32,10 @@ function Appointment() {
   }
 
   return (
-    <>
-      <div className="mt-4 container">
-        <h1>Agendar una Cita Médica</h1>
-        {/* Pasamos la lista de doctores al componente FormAgendar */}
-        <FormAgendar doctors={doctors} />
-      </div>
-    </>
+    <div className="mt-4 container">
+      <h1>Agendar una Cita Médica</h1>
+      <FormAgendar doctors={doctors} />
+    </div>
   );
 }
 

@@ -6,4 +6,5 @@ export type Doctor = {
   services: string[];
   years: number;
   img?: string;
+  availableTimes: number[];
 };
