@@ -6,7 +6,9 @@ const Header = () => {
   return (
     <Navbar
       expand='lg'
-      className='navbar navbar-expand-lg bg-body-secondary fixed-top'
+      className='navbar navbar-expand-lg bg-info fixed-top'
+      // @ts-expect-error
+      style={{ '--bs-bg-opacity': 0.3 }}
     >
       <Container fluid>
         <Row className='w-100'>
@@ -38,9 +40,15 @@ const Header = () => {
         </Row>
         <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
           <Nav>
-            <Nav.Link href={PAGES.HOME}>Inicio</Nav.Link>
-            <Nav.Link href={PAGES.ABOUT}>Equipo</Nav.Link>
-            <Nav.Link href={PAGES.CONTACT}>Contacto</Nav.Link>
+            <Nav.Link className='fw-bold' href={PAGES.HOME}>
+              Inicio
+            </Nav.Link>
+            <Nav.Link className='fw-bold' href={PAGES.ABOUT}>
+              Equipo
+            </Nav.Link>
+            <Nav.Link className='fw-bold' href={PAGES.CONTACT}>
+              Contacto
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

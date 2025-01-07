@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import FormAgendar from '../components/Form';
 import type { Doctor } from '../types/data';
+import { Container } from 'react-bootstrap';
 
 function Appointment() {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
@@ -32,10 +33,13 @@ function Appointment() {
   }
 
   return (
-    <div className="mt-4 container">
-      <h1>Agendar una Cita Médica</h1>
-      <FormAgendar doctors={doctors} />
-    </div>
+    //@ts-expect-error
+    <Container fluid className='bg-info' style={{ '--bs-bg-opacity': 0.1 }}>
+      <Container className='mt-5 pt-5 container'>
+        <h1 className='mt-5 mb-4 text-center'>Agendar una Cita Médica</h1>
+        <FormAgendar doctors={doctors} />
+      </Container>
+    </Container>
   );
 }
 

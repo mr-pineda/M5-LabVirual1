@@ -18,6 +18,14 @@ const Footer = () => {
           </li>
           <li className='nav-item'>
             <a
+              href={PAGES.CONTACT}
+              className='nav-link px-2 text-body-secondary'
+            >
+              Contacto
+            </a>
+          </li>
+          <li className='nav-item'>
+            <a
               href={PAGES.APPOINTMENT}
               className='nav-link px-2 text-body-secondary'
             >
@@ -25,7 +33,9 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-        <p className='text-center text-body-secondary'>© 2025 Hospital</p>
+        <p className='text-center text-body-secondary'>
+          © 2025 Hospital Nacional
+        </p>
       </footer>
     </div>
   );
